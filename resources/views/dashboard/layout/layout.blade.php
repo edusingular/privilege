@@ -60,7 +60,7 @@
                         <ul class="navbar-nav mx-auto align-items-lg-center escondeD">
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="{{ asset('#') }}" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">Landings</a>
+                                    data-bs-toggle="dropdown" aria-expanded="false">Sobre</a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="{{ asset('index.html') }}">Landing Overview</a>
                                     </li>
@@ -93,7 +93,9 @@
                         </ul>
                         <div class="mt-3 mt-lg-0 d-flex align-items-center">
                             <a href="{{ asset('signin.html') }}" class="btn btn-light mx-2">Login</a>
-                            <a href="{{ asset('signup.html') }}" class="btn btn-primary">Create account</a>
+                            <div>
+                                <a href="" class="btn btn-primary btnNovo"><i class='bx bx-credit-card-front'></i> Adicionar fundos</a>
+                             </div>
                         </div>
                     </div>
                 </div>

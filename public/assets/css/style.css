@@ -30,7 +30,7 @@ main {
 }
 
 .descricao {
-    font-size: 12px;
+    font-size: 14px;
     display: block;
 }
 
@@ -49,8 +49,8 @@ main {
 }
 
 .saldo {
-    font-size: 12px;
-    font-weight: 600;
+    font-size: 16px;
+    font-weight: 800;
 }
 
 .borda {
@@ -74,7 +74,9 @@ main {
     align-items: center;
     justify-content: center;
 }
-
+.saldo i{
+    font-size: 19px;
+}
 .resumo {
     display: flex;
     flex-direction: column;
@@ -82,8 +84,8 @@ main {
 }
 
 .resumo span {
-    font-size: 11px;
-    font-weight: 700;
+    font-size: 12px;
+    font-weight: 800;
 }
 
 #resumo .owl-stage {
@@ -93,7 +95,23 @@ main {
     display: none;
 }
 
-
+.btnNovo {
+    place-content: center;
+    align-items: center;
+    background-color: rgb(34, 34, 34);
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 0.706592px 0.706592px -0.625px, rgba(0, 0, 0, 0.145) 0px 1.80656px 1.80656px -1.25px, rgba(0, 0, 0, 0.137) 0px 3.62176px 3.62176px -1.875px, rgba(0, 0, 0, 0.125) 0px 6.8656px 6.8656px -2.5px, rgba(0, 0, 0, 0.106) 0px 13.6468px 13.6468px -3.125px, rgba(0, 0, 0, 0.05) 0px 30px 30px -3.75px;
+    display: flex;
+    flex: 0 0 auto;
+    flex-flow: row;
+    gap: 10px;
+    height: 40px;
+    overflow: visible;
+    padding: 15px;
+    position: relative;
+    color: #fff;
+    transition: 0.4s;
+}
 
 @media (min-width: 1400px) {
 
@@ -137,7 +155,7 @@ main {
     h2,
     h3 {
         font-weight: 700;
-        font-size: 0.9rem;
+        font-size: 1rem;
         letter-spacing: -.03em;
     }
 
@@ -164,5 +182,21 @@ main {
     .h6,
     h6 {
         font-size: .7rem;
+    }
+    .saldo i {
+        font-size: 17px;
+    }
+    .semFundo{
+        background-color: #f9fafc !important;
+    }
+    .shadow-sm-semFundo {
+        box-shadow: 0 0 0 0 !important;
+    }
+    .font16m {
+        font-size: 1.8rem;
+    }
+    .saldom {
+        font-size: 18px;
+        font-weight: 600;
     }
 }

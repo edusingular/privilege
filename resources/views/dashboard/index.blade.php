@@ -101,27 +101,22 @@
 
                         <div class="row mb-5 g-4">
                             <div class="col-lg-6 col-md-6">
-                                <div class="card border-0 shadow-sm">
-                                    <div class="card-body d-flex justify-content-between">
+                                <div class="card border-0 shadow-sm shadow-sm-semFundo">
+                                    <div class="card-body d-flex justify-content-between semFundo">
                                         <div>
-                                            <span class="saldo">Depositado</span>
-                                            <h3 class="mb-0 mt-2 font16">R$350.00</h3>
+                                            <span class="saldom"><i class="bi bi-wallet2"></i>
+                                                 Saldo</span>
+                                            <h3 class="mb-0 mt-2 font16m">R$1350.00</h3>
                                         </div>
-                                        <div class="borda">
-                                            <span class="saldo">CashBack</span>
-                                            <h3 class="mb-0 mt-2 font16">R$150.00</h3>
-                                        </div>
-                                        <div>
-                                            <span class="saldo">Saldo total</span>
-                                            <h3 class="mb-0 mt-2 font16">R$1350.00</h3>
-                                        </div>
+                                        
+                                      
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-3 col-6">
                                 <div class="card border-0 shadow-sm">
                                     <div class="card-body">
-                                        <span class="saldo">Meus pontos</span>
+                                        <span class="saldo"><i class='bx bx-gift' ></i> Meus pontos</span>
                                         <h3 class="mb-0 mt-2 font16">700</h3>
                                     </div>
                                 </div>
@@ -130,8 +125,8 @@
                             <div class="col-md-3 col-6">
                                 <div class="card border-0 shadow-sm">
                                     <div class="card-body">
-                                        <span class="saldo">Total Earnings</span>
-                                        <h3 class="mb-0 mt-2 font16">$0.61</h3>
+                                        <span class="saldo"><i class="bi bi-piggy-bank"></i> Economizado</span>
+                                        <h3 class="mb-0 mt-2 font16">R$40.61</h3>
                                     </div>
                                 </div>
                             </div>
@@ -395,7 +390,7 @@
         $('#resumo').owlCarousel({
             loop: false,
             margin: 5,
-            autoplay: true,
+            autoplay: false,
             autoHeight: true,
             nav: false,
             stagePadding: 20,
