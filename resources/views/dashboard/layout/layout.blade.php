@@ -121,22 +121,7 @@
                         <p class="mb-5">Build faster websites with Block multipurpose bootstrap 5 template. Duis
                             imper diet mollis leo, quis ultrices erat ultrices simple dummy .</p>
 
-                        <form class="needs-validation" novalidate>
-                            <h5 class="mb-3">Subscribe to our newsletter</h5>
-                            <div class="row g-2">
-                                <div class="col-lg-9 col-8">
-                                    <label for="subscribeEmail" class="visually-hidden">Email</label>
-                                    <input type="email" class="form-control" id="subscribeEmail"
-                                        placeholder="Email address" required />
-                                    <div class="invalid-feedback">Please enter email.</div>
-                                </div>
-                                <div class="col-lg-3 col-4">
-                                    <div>
-                                        <button type="submit" class="btn btn-primary">Subscribe</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
+                        
                     </div>
                 </div>
                 <div class="offset-xxl-1 col-xxl-6 col-lg-6 offset-md-1 col-md-4">
@@ -265,9 +250,8 @@
                     <div class="small mb-3 mb-md-0">
                         Copyright © 2024
 
-                        <span class="text-primary"><a href="{{ asset('#') }}">Block Bootstrap 5 Theme</a></span>
-                        | Designed by
-                        <span class="text-primary"><a href="{{ asset('#') }}">CodesCandy</a></span>
+                        <span class="text-primary"><a href="{{ asset('#') }}"> {{ config('app.name') }}</a></span>
+                        
                     </div>
                 </div>
                 
