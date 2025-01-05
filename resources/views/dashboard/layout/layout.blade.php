@@ -129,7 +129,7 @@
 
                                     </span>
                                 </a>
-                                <a href="{{ route('pay') }}" class="btn btn-primary btnNovo"><i
+                                <a href="{{ route('pay') }}" class="btn btn-primary "><i
                                         class='bx bx-credit-card-front'></i> Adicionar fundos</a>
                             </div>
                         </div>
@@ -180,9 +180,9 @@
                                 </li>
 
                                 <li class="nav-item">
-                                    <a class="nav-link" href="account-billing.html">
+                                    <a class="nav-link" href="{{ route('ecommerce') }}">
                                         <i class="align-bottom bx bx-credit-card-front"></i>
-                                        <span class="ms-2">Explorar Ofertas</span>
+                                        <span class="ms-2">Ofertas</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
