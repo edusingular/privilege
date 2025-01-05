@@ -50,11 +50,14 @@
                 <a class="navbar-brand" href="{{ asset('index.html') }}"><img
                         src="{{ asset('assets/images/logo.svg') }}" width="110px" alt /></a>
                 <div>
-                    <a class="navbar-toggler offcanvas-nav-btn" type="button">
+                    <a class="navbar-toggler offcanvas-nav-btn " type="button">
                         <i class='bx bx-chat iconeCompra'></i>
+
                     </a>
+
                     <a class="navbar-toggler offcanvas-nav-btn" href="">
                         <i class='bx bx-cart iconeCompra'></i>
+
                     </a>
                     <a class="navbar-toggler offcanvas-nav-btn" type="button">
                         <i class="bi bi-list" style="font-size:26px"></i>
@@ -108,13 +111,23 @@
                         <div class="mt-3 mt-lg-0 d-flex align-items-center">
 
                             <div class="d-flex align-items-center gap-4">
-                                <a class="offcanvas-nav-btn" type="button">
+                                <a class="offcanvas-nav-btn  position-relative" type="button">
 
-                                    <i class='bx bx-chat iconeCompra'></i>
+                                    <i class='bx bx-chat iconeCompra '></i>
+                                    <span
+                                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                        99+
+
+                                    </span>
                                 </a>
-                                <a class="offcanvas-nav-btn" href="">
+                                <a class="offcanvas-nav-btn position-relative" href="">
 
                                     <i class='bx bx-cart iconeCompra'></i>
+                                    <span
+                                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
+                                        3
+
+                                    </span>
                                 </a>
                                 <a href="{{ route('pay') }}" class="btn btn-primary btnNovo"><i
                                         class='bx bx-credit-card-front'></i> Adicionar fundos</a>
@@ -142,7 +155,7 @@
                             </div>
                         </div>
                         <!-- Navbar -->
-                        
+
                         <div class="d-md-none text-center d-grid">
                             <button class="btn btn-light mb-3 d-flex align-items-center justify-content-between"
                                 type="button" data-bs-toggle="collapse" data-bs-target="#collapseAccountMenu"

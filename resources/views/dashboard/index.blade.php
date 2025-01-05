@@ -56,12 +56,14 @@
                 </div>
             </div>
             <div class="item">
-                <div class="resumo text-center">
-                    <div class="icones shadow-sm">
-                        <i class='bx bx-credit-card-front'></i>
+                <a href="{{ route('pay') }}">
+                    <div class="resumo text-center">
+                        <div class="icones shadow-sm">
+                            <i class='bx bx-credit-card-front'></i>
+                        </div>
+                        <span>Fazer recarga</span>
                     </div>
-                    <span>Fazer recarga</span>
-                </div>
+                </a>
             </div>
             <div class="item">
                 <div class="resumo text-center">
