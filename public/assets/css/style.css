@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 :root,
-[data-bs-theme=light] {
+[data-bs-theme="light"] {
     --bs-primary: #1b1b1b;
     --bs-body-line-height: 1.1rem;
 }
@@ -16,7 +16,7 @@
     --bs-btn-active-color: #fff;
     --bs-btn-active-bg: #6f31cc;
     --bs-btn-active-border-color: #682ebf;
-    --bs-btn-active-shadow: inset 0 3px 5px rgba(2, 6, 23, .125);
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(2, 6, 23, 0.125);
     --bs-btn-disabled-color: #fff;
     --bs-btn-disabled-bg: #8b3dff;
     --bs-btn-disabled-border-color: #8b3dff;
@@ -54,8 +54,7 @@ main {
 }
 
 .borda {
-    content: '';
-
+    content: "";
 }
 
 .borda::before {
@@ -74,7 +73,7 @@ main {
     align-items: center;
     justify-content: center;
 }
-.saldo i{
+.saldo i {
     font-size: 19px;
 }
 .resumo {
@@ -91,7 +90,7 @@ main {
 #resumo .owl-stage {
     left: -20px;
 }
-.escondeD{
+.escondeD {
     display: none;
 }
 
@@ -100,7 +99,12 @@ main {
     align-items: center;
     background-color: rgb(34, 34, 34);
     border-radius: 8px;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 0.706592px 0.706592px -0.625px, rgba(0, 0, 0, 0.145) 0px 1.80656px 1.80656px -1.25px, rgba(0, 0, 0, 0.137) 0px 3.62176px 3.62176px -1.875px, rgba(0, 0, 0, 0.125) 0px 6.8656px 6.8656px -2.5px, rgba(0, 0, 0, 0.106) 0px 13.6468px 13.6468px -3.125px, rgba(0, 0, 0, 0.05) 0px 30px 30px -3.75px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 0.706592px 0.706592px -0.625px,
+        rgba(0, 0, 0, 0.145) 0px 1.80656px 1.80656px -1.25px,
+        rgba(0, 0, 0, 0.137) 0px 3.62176px 3.62176px -1.875px,
+        rgba(0, 0, 0, 0.125) 0px 6.8656px 6.8656px -2.5px,
+        rgba(0, 0, 0, 0.106) 0px 13.6468px 13.6468px -3.125px,
+        rgba(0, 0, 0, 0.05) 0px 30px 30px -3.75px;
     display: flex;
     flex: 0 0 auto;
     flex-flow: row;
@@ -112,9 +116,21 @@ main {
     color: #fff;
     transition: 0.4s;
 }
+.iconeCompra{
+    font-size: 26px;
+    color: #65748b;
+}
+@media (min-width: 992px) {
+    .navbar-expand-lg .offcanvas .offcanvas-body {
+        display: flex;
+        flex-grow: 0;
+        overflow-y: visible;
+        padding: 0;
+        justify-content: flex-end;
+    }
+}
 
 @media (min-width: 1400px) {
-
     .container,
     .container-lg,
     .container-md,
@@ -125,14 +141,12 @@ main {
     }
 }
 
-@media (max-width:768px) {
-
-
+@media (max-width: 768px) {
     .navbar {
         background-color: #f7f8fa;
-        box-shadow: 0 .125rem .25rem rgba(2, 6, 23, .0);
+        box-shadow: 0 0.125rem 0.25rem rgba(2, 6, 23, 0);
     }
-    .escondeD{
+    .escondeD {
         display: block;
     }
     .descricao {
@@ -156,7 +170,7 @@ main {
     h3 {
         font-weight: 700;
         font-size: 1rem;
-        letter-spacing: -.03em;
+        letter-spacing: -0.03em;
     }
 
     .font16 {
@@ -174,19 +188,17 @@ main {
     }
 
     .to {
-
         font-size: 12px;
-
     }
 
     .h6,
     h6 {
-        font-size: .7rem;
+        font-size: 0.7rem;
     }
     .saldo i {
         font-size: 17px;
     }
-    .semFundo{
+    .semFundo {
         background-color: #f9fafc !important;
     }
     .shadow-sm-semFundo {
@@ -198,5 +210,15 @@ main {
     .saldom {
         font-size: 18px;
         font-weight: 600;
+    }
+    .navbar .navbar-toggler {
+        border: 2px solid #0f172a00;
+        color: var(--bs-dark);
+        font-size: 1.5rem;
+        padding: 0.25rem 0.5rem;
+    }
+    .saldo {
+        font-size: 14px;
+        font-weight: 800;
     }
 }

@@ -46,9 +46,20 @@
             <div class="container px-3">
                 <a class="navbar-brand" href="{{ asset('index.html') }}"><img
                         src="{{ asset('assets/images/logo.svg') }}" width="110px" alt /></a>
-                <button class="navbar-toggler offcanvas-nav-btn" type="button">
-                    <i class="bi bi-list"></i>
-                </button>
+                        <div>
+                            <a class="navbar-toggler offcanvas-nav-btn" type="button">
+                                <i class='bx bx-chat iconeCompra'></i>
+                            </a>
+                            <a  class="navbar-toggler offcanvas-nav-btn" href="">
+                                <i class='bx bx-cart iconeCompra'></i>
+                            </a>
+                            <a class="navbar-toggler offcanvas-nav-btn" type="button">
+                                <i class="bi bi-list" style="font-size:26px"></i>
+                            </a>
+
+
+                        </div>
+              
                 <div class="offcanvas offcanvas-start offcanvas-nav" style="width: 20rem">
                     <div class="offcanvas-header">
                         <a href="{{ asset('index.html') }}" class="text-inverse"><img
@@ -92,13 +103,22 @@
                            
                         </ul>
                         <div class="mt-3 mt-lg-0 d-flex align-items-center">
-                            <a href="{{ asset('signin.html') }}" class="btn btn-light mx-2">Login</a>
-                            <div>
+                          
+                            <div class="d-flex align-items-center gap-4">
+                                <a class="offcanvas-nav-btn" type="button">
+                                  
+                                    <i class='bx bx-chat iconeCompra'></i>
+                                </a>
+                                <a  class="offcanvas-nav-btn" href="">
+                                   
+                                    <i class='bx bx-cart iconeCompra'></i>
+                                </a>
                                 <a href="" class="btn btn-primary btnNovo"><i class='bx bx-credit-card-front'></i> Adicionar fundos</a>
                              </div>
                         </div>
                     </div>
                 </div>
+                
             </div>
         </nav>
     </header>
