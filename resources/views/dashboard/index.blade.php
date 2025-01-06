@@ -125,55 +125,36 @@
                 <h6 class="mb-lg-4">Pacotes exclusivos</h6>
             </div>
             <div id="pacotes" class="owl-carousel owl-theme">
-                <div class="box">
-
-                    <figure class="mb-3 card-lift">
-                        <img src="{{ asset('assets/clientes/massagem.webp') }}" alt="location"
-                            class="img-fluid rounded-3" />
-                    </figure>
-                    <div class="d-flex">
-                        <div class="ms-2">
-                            <h5 class="mb-3"> Kit Regeneração Capilar Kérastase Chronologiste </h5>
-                            {{-- <span class="descricao">Tratamento de regeneração capilar que revitaliza
-                                            completamente o cabelo e o couro cabeludo com sofisticada experiência sensorial.
-                                        </span> --}}
-                            <div class="price d-flex justify-content-lg-start gap-4">
-                                <div class="from">
-                                    R$520.00
-                                </div>
-                                <div class="to">
-                                    R$120.00
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="box">
-
-                    <figure class="mb-3 card-lift">
-                        <img src="{{ asset('assets/clientes/156991-500-auto.webp') }}" alt="location"
-                            class="img-fluid rounded-3" />
-                    </figure>
-                    <div class="d-flex">
-                        <div class="ms-2">
-                            <h5 class="mb-3"> Kit Regeneração Capilar Kérastase Chronologiste </h5>
-                            {{-- <span class="descricao">Tratamento de regeneração capilar que revitaliza
-                                            completamente o cabelo e o couro cabeludo com sofisticada experiência sensorial.
-                                        </span> --}}
-                            <div class="price d-flex justify-content-lg-start gap-4">
-                                <div class="from">
-                                    R$520.00
-                                </div>
-                                <div class="to">
-                                    R$120.00
+                {{-- //@dd($getAllProductsWorks) --}}
+                @foreach ($getAllProductsWorks as $getAllProductsWork)
+                    <div class="box">
+                        <figure class="mb-3 card-lift">
+                            <img src="{{ asset('assets/clientes/'.$getAllProductsWork->media_products->first()->photo_video.'') }}" alt="location"
+                                class="img-fluid rounded-3" />
+                        </figure>
+                        <div class="d-flex">
+                            <div class="ms-2">
+                                <h5 class="mb-3"> {{ $getAllProductsWork->title }} </h5>
+                                <div class="price d-flex justify-content-lg-start gap-4">
+                                    @if ($getAllProductsWork->amount_promotion != 0)
+                                        <div class="from line">
+                                            R${{ number_format($getAllProductsWork->amount, 2, ',', '.') }}
+                                        </div>
+                                        <div class="to">
+                                            R${{ number_format($getAllProductsWork->amount_promotion, 2, ',', '.') }}
+                                        </div>
+                                    @else
+                                        <div class="to">
+                                            R${{ number_format($getAllProductsWork->amount, 2, ',', '.') }}
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>
                     </div>
+                @endforeach
 
-                </div>
+
             </div>
 
         </div>
@@ -185,46 +166,37 @@
 
 
             <div id="produtos" class="owl-carousel owl-theme">
-                <div class="box">
+                @foreach ($getAllProducts as $getAllProduct)
+                    <div class="box">
+                        <figure class="mb-3 card-lift">
+                            <img src="{{ asset('assets/clientes/'.$getAllProduct->media_products->first()->photo_video.'') }}" alt="location"
+                                class="img-fluid rounded-3" />
+                        </figure>
+                        <div class="d-flex">
+                            <div class="ms-2">
+                                <h5 class="mb-3"> {{ $getAllProduct->title }} </h5>
+                                <div class="price d-flex justify-content-lg-start gap-4">
+                                    @if ($getAllProduct->amount_promotion != 0)
+                                        <div class="from line">
+                                            R${{ number_format($getAllProduct->amount, 2, ',', '.') }}
+                                        </div>
+                                        <div class="to">
+                                            R${{ number_format($getAllProduct->amount_promotion, 2, ',', '.') }}
+                                        </div>
+                                    @else
+                                        <div class="to">
+                                            R${{ number_format($getAllProduct->amount, 2, ',', '.') }}
+                                        </div>
+                                    @endif
 
-                    <figure class="mb-3 card-lift">
-                        <img src="{{ asset('assets/clientes/kit-iconico-leleburnier.webp') }}" alt="location"
-                            class="img-fluid rounded-3" />
-                    </figure>
-                    <div class="d-flex">
-                        <div class="ms-2">
-                            <h5 class="mb-3"> Kit Regeneração Capilar Kérastase Chronologiste </h5>
-                            <div class="price d-flex justify-content-lg-start gap-4">
-                                <div class="from">
-                                    R$520.00
-                                </div>
-                                <div class="to">
-                                    R$120.00
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
 
-                <div class="box">
 
-                    <figure class="mb-3 card-lift">
-                        <img src="{{ asset('assets/clientes/1.webp') }}" alt="location" class="img-fluid rounded-3" />
-                    </figure>
-                    <div class="d-flex">
-                        <div class="ms-2">
-                            <h5 class="mb-3"> Kit Regeneração Capilar Kérastase Chronologiste </h5>
-                            <div class="price d-flex justify-content-lg-start gap-4">
-                                <div class="from">
-                                    R$520.00
-                                </div>
-                                <div class="to">
-                                    R$120.00
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
 
 

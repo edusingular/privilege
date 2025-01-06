@@ -6,9 +6,9 @@
 @endsection
 @section('content')
     <div class="col-lg-10 col-md-10">
-      
-       
-      
+
+
+
         <div class="row">
             <div class="col-md-12">
                 <div id="banner" class="owl-carousel owl-theme">
@@ -21,66 +21,8 @@
             </div>
         </div>
 
-        {{-- @include('dashboard.ecommerce.categorias') --}}
+        @include('dashboard.ecommerce.categorias')
 
-
-        <div class="row g-4 mb-4">
-            <div class="col-lg-12 col-md-12 col-12">
-                <h6 class="mt-4">Pacotes exclusivos</h6>
-            </div>
-            <div id="pacotes" class="owl-carousel owl-theme">
-                <div class="box">
-
-                    <figure class="mb-3 card-lift">
-                        <img src="{{ asset('assets/clientes/massagem.webp') }}" alt="location"
-                            class="img-fluid rounded-3" />
-                    </figure>
-                    <div class="d-flex">
-                        <div class="ms-2">
-                            <h5 class="mb-3"> Kit Regeneração Capilar Kérastase Chronologiste </h5>
-                            {{-- <span class="descricao">Tratamento de regeneração capilar que revitaliza
-                                            completamente o cabelo e o couro cabeludo com sofisticada experiência sensorial.
-                                        </span> --}}
-                            <div class="price d-flex justify-content-lg-start gap-4">
-                                <div class="from">
-                                    R$520.00
-                                </div>
-                                <div class="to">
-                                    R$120.00
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="box">
-
-                    <figure class="mb-3 card-lift">
-                        <img src="{{ asset('assets/clientes/156991-500-auto.webp') }}" alt="location"
-                            class="img-fluid rounded-3" />
-                    </figure>
-                    <div class="d-flex">
-                        <div class="ms-2">
-                            <h5 class="mb-3"> Kit Regeneração Capilar Kérastase Chronologiste </h5>
-                            {{-- <span class="descricao">Tratamento de regeneração capilar que revitaliza
-                                            completamente o cabelo e o couro cabeludo com sofisticada experiência sensorial.
-                                        </span> --}}
-                            <div class="price d-flex justify-content-lg-start gap-4">
-                                <div class="from">
-                                    R$520.00
-                                </div>
-                                <div class="to">
-                                    R$120.00
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
 
         <div class="row g-4 mb-4">
             <div class="col-lg-12 col-md-12 col-12">
@@ -88,178 +30,48 @@
             </div>
         </div>
 
-            <div class="row">
+        <div class="row">
+            @foreach ($getAllProducts as $getAllProduct)
                 <div class="col-md-3 mb-5 col-6">
+                    <a
+                        href="{{ route('product-detail', ['id' => $getAllProduct->id, 'title' => Str::slug($getAllProduct->title)]) }}">
+                        <div>
 
-                    <figure class="mb-3 card-lift">
-                        <img src="{{ asset('assets/clientes/kit-iconico-leleburnier.webp') }}" alt="location"
-                            class="img-fluid rounded-3" />
-                    </figure>
-                    <div class="d-flex">
-                        <div class="ms-2">
-                            <h5 class="mb-3"> Kit Regeneração Capilar Kérastase Chronologiste </h5>
-                            <div class="price d-flex justify-content-lg-start gap-4">
-                                <div class="from">
-                                    R$520.00
-                                </div>
-                                <div class="to">
-                                    R$120.00
+                            <figure class="mb-3 card-lift">
+                                <img src="{{ asset('assets/clientes/' . $getAllProduct->media_products->first()->photo_video . '') }}"
+                                    alt="location" class="img-fluid rounded-3" />
+                            </figure>
+                            <div class="d-flex">
+                                <div class="ms-2">
+                                    <h5 class="mb-3"> {{ $getAllProduct->title }} </h5>
+                                    <div class="price d-flex justify-content-lg-start gap-4">
+                                        @if ($getAllProduct->amount_promotion != 0)
+                                            <div class="from line">
+                                                R${{ number_format($getAllProduct->amount, 2, ',', '.') }}
+                                            </div>
+                                            <div class="to">
+                                                R${{ number_format($getAllProduct->amount_promotion, 2, ',', '.') }}
+                                            </div>
+                                        @else
+                                            <div class="to">
+                                                R${{ number_format($getAllProduct->amount, 2, ',', '.') }}
+                                            </div>
+                                        @endif
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
+            @endforeach
 
-                <div class="col-md-3 mb-5 col-6">
-
-                    <figure class="mb-3 card-lift">
-                        <img src="{{ asset('assets/clientes/1.webp') }}" alt="location" class="img-fluid rounded-3" />
-                    </figure>
-                    <div class="d-flex">
-                        <div class="ms-2">
-                            <h5 class="mb-3"> Kit Regeneração Capilar Kérastase Chronologiste </h5>
-                            <div class="price d-flex justify-content-lg-start gap-4">
-                                <div class="from">
-                                    R$520.00
-                                </div>
-                                <div class="to">
-                                    R$120.00
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3 mb-5 col-6">
-
-                    <figure class="mb-3 card-lift">
-                        <img src="{{ asset('assets/clientes/kit-iconico-leleburnier.webp') }}" alt="location"
-                            class="img-fluid rounded-3" />
-                    </figure>
-                    <div class="d-flex">
-                        <div class="ms-2">
-                            <h5 class="mb-3"> Kit Regeneração Capilar Kérastase Chronologiste </h5>
-                            <div class="price d-flex justify-content-lg-start gap-4">
-                                <div class="from">
-                                    R$520.00
-                                </div>
-                                <div class="to">
-                                    R$120.00
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3 mb-5 col-6">
-
-                    <figure class="mb-3 card-lift">
-                        <img src="{{ asset('assets/clientes/1.webp') }}" alt="location" class="img-fluid rounded-3" />
-                    </figure>
-                    <div class="d-flex">
-                        <div class="ms-2">
-                            <h5 class="mb-3"> Kit Regeneração Capilar Kérastase Chronologiste </h5>
-                            <div class="price d-flex justify-content-lg-start gap-4">
-                                <div class="from">
-                                    R$520.00
-                                </div>
-                                <div class="to">
-                                    R$120.00
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-md-3 mb-5 col-6">
-
-                    <figure class="mb-3 card-lift">
-                        <img src="{{ asset('assets/clientes/kit-iconico-leleburnier.webp') }}" alt="location"
-                            class="img-fluid rounded-3" />
-                    </figure>
-                    <div class="d-flex">
-                        <div class="ms-2">
-                            <h5 class="mb-3"> Kit Regeneração Capilar Kérastase Chronologiste </h5>
-                            <div class="price d-flex justify-content-lg-start gap-4">
-                                <div class="from">
-                                    R$520.00
-                                </div>
-                                <div class="to">
-                                    R$120.00
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3 mb-5 col-6">
-
-                    <figure class="mb-3 card-lift">
-                        <img src="{{ asset('assets/clientes/1.webp') }}" alt="location" class="img-fluid rounded-3" />
-                    </figure>
-                    <div class="d-flex">
-                        <div class="ms-2">
-                            <h5 class="mb-3"> Kit Regeneração Capilar Kérastase Chronologiste </h5>
-                            <div class="price d-flex justify-content-lg-start gap-4">
-                                <div class="from">
-                                    R$520.00
-                                </div>
-                                <div class="to">
-                                    R$120.00
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-md-3 mb-5 col-6">
-
-                    <figure class="mb-3 card-lift">
-                        <img src="{{ asset('assets/clientes/kit-iconico-leleburnier.webp') }}" alt="location"
-                            class="img-fluid rounded-3" />
-                    </figure>
-                    <div class="d-flex">
-                        <div class="ms-2">
-                            <h5 class="mb-3"> Kit Regeneração Capilar Kérastase Chronologiste </h5>
-                            <div class="price d-flex justify-content-lg-start gap-4">
-                                <div class="from">
-                                    R$520.00
-                                </div>
-                                <div class="to">
-                                    R$120.00
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3 mb-5 col-6">
-
-                    <figure class="mb-3 card-lift">
-                        <img src="{{ asset('assets/clientes/1.webp') }}" alt="location" class="img-fluid rounded-3" />
-                    </figure>
-                    <div class="d-flex">
-                        <div class="ms-2">
-                            <h5 class="mb-3"> Kit Regeneração Capilar Kérastase Chronologiste </h5>
-                            <div class="price d-flex justify-content-lg-start gap-4">
-                                <div class="from">
-                                    R$520.00
-                                </div>
-                                <div class="to">
-                                    R$120.00
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
 
 
         </div>
+
+
+    </div>
 
 
     </div>
@@ -295,58 +107,20 @@
                 }
             }
         })
-        $('#pacotes').owlCarousel({
+        $('#pill').owlCarousel({
             loop: true,
-            margin: 20,
+            margin: 10,
             autoplay: true,
             autoHeight: true,
             nav: false,
+            autoWidth: true,
 
             responsive: {
                 0: {
-                    items: 2
-                },
-                600: {
                     items: 3
                 },
-                1000: {
-                    items: 4
-                }
-            }
-        })
-        $('#produtos').owlCarousel({
-            loop: true,
-            margin: 20,
-            autoplay: true,
-            autoHeight: true,
-            nav: false,
-
-            responsive: {
-                0: {
-                    items: 2
-                },
                 600: {
-                    items: 3
-                },
-                1000: {
-                    items: 4
-                }
-            }
-        })
-
-        $('#resumo').owlCarousel({
-            loop: false,
-            margin: 5,
-            autoplay: false,
-            autoHeight: true,
-            nav: false,
-            stagePadding: 20,
-            responsive: {
-                0: {
-                    items: 4
-                },
-                600: {
-                    items: 5
+                    items: 6
                 },
                 1000: {
                     items: 12

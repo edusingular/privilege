@@ -5,7 +5,7 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <!-- Favicon icon-->
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/images/favicon/apple-touch-icon.png') }}" />
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/images/favicon/favicon-32x32.png') }}" />
@@ -15,7 +15,7 @@
     <link rel="mask-icon" href="{{ asset('assets/images/favicon/block-safari-pinned-tab.svg') }}" color="#8b3dff" />
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon/favicon.ico') }}" />
     <meta name="msapplication-TileColor" content="#8b3dff" />
-
+   
 
     <!-- Color modes -->
     <script src="{{ asset('assets/js/vendors/color-modes.js') }}"></script>
@@ -91,8 +91,15 @@
 
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('ecommerce') }}">
-                                    <i class='bx bx-cart'></i>
-                                    <span class="ms-2">Nossas Ofertas</span>
+                                    <i class='bx bx-cut'></i>
+                                    <span class="ms-2">Serviços exclusivos</span>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('ecommerce') }}">
+                                    <i class='bx bx-purchase-tag-alt'></i>
+                                    <span class="ms-2">Nossos produtos</span>
                                 </a>
                             </li>
 
@@ -217,7 +224,14 @@
 
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('ecommerce') }}">
-                                        <i class='bx bx-cart'></i>
+                                        <i class='bx bx-cut'></i>
+                                        <span class="ms-2">Serviços exclusivos</span>
+                                    </a>
+                                </li>
+    
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('ecommerce') }}">
+                                        <i class='bx bx-purchase-tag-alt'></i>
                                         <span class="ms-2">Nossas Ofertas</span>
                                     </a>
                                 </li>

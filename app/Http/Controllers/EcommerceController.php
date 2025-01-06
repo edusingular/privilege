@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categories;
+use App\Models\Products;
 use Illuminate\Http\Request;
 
 class EcommerceController extends Controller
@@ -9,12 +11,28 @@ class EcommerceController extends Controller
     /**
      * Display a listing of the resource.
      */
+    protected $product;
+
+    public function __construct()
+    {
+        $this->product = new ProductsController;
+    }
+
     public function index()
     {
         //
-        return view('dashboard.ecommerce.ecommerce');
+        $getAllCategories = Categories::where('company_id', 1)
+                            ->get();
+        $getAllProducts = $this->product->getAllProducts();
+        return view('dashboard.ecommerce.ecommerce' ,['getAllProducts'=>$getAllProducts, 'getAllCategories'=>$getAllCategories]);
     }
 
+
+    public function show($id, $title)
+    {
+        $getSingleProduct = Products::with('media_products')->findOrFail($id);
+        return view('dashboard.ecommerce.product-detail', ['getSingleProduct'=>$getSingleProduct]);
+    }
     /**
      * Show the form for creating a new resource.
      */
@@ -31,14 +49,7 @@ class EcommerceController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
+  
     /**
      * Show the form for editing the specified resource.
      */

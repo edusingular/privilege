@@ -192,18 +192,39 @@ main {
     color: transparent;
     text-shadow: 0 0 0 #000;
 }
+
 .icon {
     cursor: pointer;
     font-size: 24px;
     margin-left: 10px;
 }
-.subTitulosMenu{
+
+.subTitulosMenu {
     font-size: 8px;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: #848484;
 }
+
+.nav-account .nav-item .nav-link {
+    background-color: transparent;
+    border-radius: .5rem;
+    color: var(--bs-gray-500);
+    font-weight: 500;
+    line-height: 1;
+    padding: 12px 13px;
+    transition: .2s ease-in-out;
+}
+
+.pill {
+    background-color: #ffffff;
+    padding: 10px;
+    border: 1px #673AB7 dashed;
+    border-radius: 30px;
+    font-size: 12px;
+}
+
 @media (min-width: 992px) {
     .navbar-expand-lg .offcanvas .offcanvas-body {
         display: flex;
@@ -213,6 +234,7 @@ main {
         justify-content: flex-end;
     }
 }
+
 @media (max-width: 992px) {
     .navbar .navbar-nav .nav-item .nav-link {
         border-bottom: 0px solid var(--bs-gray-200);
@@ -220,6 +242,7 @@ main {
         padding: .75rem 0 !important;
     }
 }
+
 @media (min-width: 1400px) {
 
     .container,
@@ -276,8 +299,12 @@ main {
     }
 
     .from {
-        text-decoration: line-through;
+
         font-size: 12px;
+    }
+
+    .line {
+        text-decoration: line-through;
     }
 
     .to {

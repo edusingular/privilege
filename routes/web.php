@@ -14,3 +14,4 @@ Route::get('/pay/create', [PayController::class, 'create'])->name('pay.create');
 
 
 Route::get('/ecommerce', [EcommerceController::class, 'index'])->name('ecommerce');
+Route::get('product-detail/{id}/{title}', [EcommerceController::class, 'show'])->name('product-detail');

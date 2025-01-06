@@ -4,15 +4,23 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
+
 class DashboardController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    protected $product;
+
+    public function __construct()
+    {
+        $this->product = new ProductsController;
+    }
+    
     public function index()
     {
         //
-        return view('dashboard.index');
+        $getAllProducts = $this->product->getAllProductsSession(0);
+        $getAllProductsWorks = $this->product->getAllProductsSession(1);
+        return view('dashboard.index', ['getAllProducts'=>$getAllProducts, 'getAllProductsWorks'=>$getAllProductsWorks]);
     }
 
     /**
