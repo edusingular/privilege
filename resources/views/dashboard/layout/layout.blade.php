@@ -75,25 +75,74 @@
                     </div>
                     <div class="offcanvas-body pt-0 align-items-center ">
                         <ul class="navbar-nav mx-auto align-items-lg-center escondeD">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link " href="{{ route('ecommerce') }}" role="button">Ofertas</a>
+                            <h6 class="subTitulosMenu">Principal</h6>
+                            <li class="nav-item">
+                                <a class="nav-link {{ setActiveMenu('/') }}" href="{{ route('dashboard') }}">
+                                    <i class="align-bottom bx bx-home"></i>
+                                    <span class="ms-2 ">Home</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ setActiveMenu('/pay') }}" href="account-profile.html">
+                                    <i class="align-bottom bx bx-user"></i>
+                                    <span class="ms-2">Agendar Serviço</span>
+                                </a>
                             </li>
 
-                            <li class="nav-item dropdown">
-                                <a class="nav-link " href="{{ asset('#') }}" role="button">Ofertas</a>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('ecommerce') }}">
+                                    <i class='bx bx-cart'></i>
+                                    <span class="ms-2">Nossas Ofertas</span>
+                                </a>
                             </li>
 
-                            <li class="nav-item dropdown">
-                                <a class="nav-link " href="{{ asset('#') }}" role="button">Ofertas</a>
+
+                            <hr>
+                            <h6 class="subTitulosMenu">Financeiro</h6>
+                            <li class="nav-item">
+                                <a class="nav-link {{ setActiveMenu('/pay') }}" aria-current="page"
+                                    href="{{ route('pay') }}">
+                                    <i class="bx bx-credit-card-front"></i>
+                                    <span class="ms-2">Adicionar Saldo</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ setActiveMenu('/pay') }}" aria-current="page"
+                                    href="{{ route('pay') }}">
+                                    <i class="bx bx-credit-card-front"></i>
+                                    <span class="ms-2">Extrato</span>
+                                </a>
                             </li>
 
-                            <li class="nav-item dropdown">
-                                <a class="nav-link " href="{{ asset('#') }}" role="button">Ofertas</a>
+                            <li class="nav-item">
+                                <a class="nav-link {{ setActiveMenu('/pay') }}" aria-current="page"
+                                    href="{{ route('pay') }}">
+                                    <i class="bi bi-piggy-bank"></i>
+                                    <span class="ms-2">Economizado</span>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link {{ setActiveMenu('/pay') }}" aria-current="page"
+                                    href="{{ route('pay') }}">
+                                    <i class="bx bx-gift"></i>
+                                    <span class="ms-2">Meus pontos</span>
+                                </a>
+                            </li>
+                            <hr>
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">
+                                    <i class="align-bottom bx bx-log-out"></i>
+                                    <span class="ms-2">Sair</span>
+                                </a>
                             </li>
 
 
 
                         </ul>
+
+
+
                         <div class="mt-3 mt-lg-0 d-flex align-items-center">
 
                             <div class="d-flex align-items-center gap-4">
@@ -152,6 +201,7 @@
                         </div>
                         <div class="collapse d-md-block" id="collapseAccountMenu">
                             <ul class="nav flex-column nav-account">
+                                <h6 class="subTitulosMenu">Principal</h6>
                                 <li class="nav-item">
                                     <a class="nav-link {{ setActiveMenu('/') }}" href="{{ route('dashboard') }}">
                                         <i class="align-bottom bx bx-home"></i>
@@ -167,24 +217,14 @@
 
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('ecommerce') }}">
-                                        <i class="align-bottom bx bx-credit-card-front"></i>
-                                        <span class="ms-2">Ofertas</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="account-team.html">
-                                        <i class="align-bottom bx bx-user-plus"></i>
-                                        <span class="ms-2">Team</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="account-notification.html">
-                                        <i class="align-bottom bx bx-bell"></i>
-                                        <span class="ms-2">Notifications</span>
+                                        <i class='bx bx-cart'></i>
+                                        <span class="ms-2">Nossas Ofertas</span>
                                     </a>
                                 </li>
 
+
                                 <hr>
+                                <h6 class="subTitulosMenu">Financeiro</h6>
                                 <li class="nav-item">
                                     <a class="nav-link {{ setActiveMenu('/pay') }}" aria-current="page"
                                         href="{{ route('pay') }}">
@@ -192,11 +232,34 @@
                                         <span class="ms-2">Adicionar Saldo</span>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link {{ setActiveMenu('/pay') }}" aria-current="page"
+                                        href="{{ route('pay') }}">
+                                        <i class="bx bx-credit-card-front"></i>
+                                        <span class="ms-2">Extrato</span>
+                                    </a>
+                                </li>
 
+                                <li class="nav-item">
+                                    <a class="nav-link {{ setActiveMenu('/pay') }}" aria-current="page"
+                                        href="{{ route('pay') }}">
+                                        <i class="bi bi-piggy-bank"></i>
+                                        <span class="ms-2">Economizado</span>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link {{ setActiveMenu('/pay') }}" aria-current="page"
+                                        href="{{ route('pay') }}">
+                                        <i class="bx bx-gift"></i>
+                                        <span class="ms-2">Meus pontos</span>
+                                    </a>
+                                </li>
+                                <hr>
                                 <li class="nav-item">
                                     <a class="nav-link" href="index.html">
                                         <i class="align-bottom bx bx-log-out"></i>
-                                        <span class="ms-2">Sign Out</span>
+                                        <span class="ms-2">Sair</span>
                                     </a>
                                 </li>
                             </ul>
