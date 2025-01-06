@@ -17,10 +17,10 @@
                         <div>
                             <span class="saldom"><i class="bi bi-wallet2"></i>
                                 Saldo</span>
-                            <h3 class="mb-0 mt-2 font16m">R$1350.00</h3>
+                            <h3 class="mb-0 mt-2 font16m" id="textContent" data-original="R$1350.00">R$1350.00</h3>
                         </div>
 
-
+                        <i id="toggleIcon" class="bi bi-eye icon" style="font-size: 20px;"></i>
                     </div>
                 </div>
             </div>
@@ -322,5 +322,34 @@
                 }
             }
         })
+    </script>
+
+    <script>
+        const textContent = document.getElementById('textContent');
+        const toggleIcon = document.getElementById('toggleIcon');
+        let isMasked = localStorage.getItem('isMasked') === 'true'; // Lê a preferência salva
+
+        function toggleVisibility() {
+            if (!isMasked) {
+                textContent.setAttribute('data-original', textContent.textContent); // Salva o texto original
+                textContent.textContent = textContent.textContent.replace(/./g, '•'); // Mostra pontos
+            } else {
+                textContent.textContent = textContent.getAttribute('data-original'); // Restaura o texto original
+            }
+            toggleIcon.className = isMasked ? 'bi bi-eye icon' : 'bi bi-eye-slash icon';
+            isMasked = !isMasked;
+            localStorage.setItem('isMasked', isMasked); // Salva a preferência
+        }
+
+        toggleIcon.addEventListener('click', toggleVisibility);
+
+        // Define o estado inicial com base na preferência salva
+        if (isMasked) {
+            textContent.setAttribute('data-original', textContent.textContent);
+            textContent.textContent = textContent.textContent.replace(/./g, '•');
+            toggleIcon.className = 'bi bi-eye-slash icon';
+        } else {
+            toggleIcon.className = 'bi bi-eye icon';
+        }
     </script>
 @endsection

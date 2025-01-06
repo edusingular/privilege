@@ -26,7 +26,7 @@
                                 <div class="mb-5">
                                     <h3 class="mb-4 d-flex align-items-center">
                                         <span class="text-dark">R$400</span>
-                                        <span class="text-body-tertiary ms-2 fs-6 fw-normal"> CASHBACK R$200</span>
+                                        <span class="text-body-tertiary ms-2 fs-6 fw-semibold"> CASHBACK R$200</span>
                                     </h3>
                                 </div>
 
@@ -50,32 +50,7 @@
                                 <div class="mb-5">
                                     <h3 class="mb-4 d-flex align-items-center">
                                         <span class="text-dark">R$400</span>
-                                        <span class="text-body-tertiary ms-2 fs-6 fw-normal"> CASHBACK R$200</span>
-                                    </h3>
-                                </div>
-
-                                <div class="mb-6">
-                                    <h3 class="h4">Pacote ouro</h3>
-                                    <p class="mb-0">Ideal for developers actively developing before going to prod.</p>
-                                </div>
-                                <div class="d-grid">
-                                    <a href="{{ route('pay.create') }}" class="btn btn-outline-primary">Comprar esse
-                                        pacote</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!--card-->
-                    </div>
-
-
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-12 mb-4">
-                        <!--card-->
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="mb-5">
-                                    <h3 class="mb-4 d-flex align-items-center">
-                                        <span class="text-dark">R$400</span>
-                                        <span class="text-body-tertiary ms-2 fs-6 fw-normal"> CASHBACK R$200</span>
+                                        <span class="text-body-tertiary ms-2 fs-6 fw-semibold"> CASHBACK R$200</span>
                                     </h3>
                                 </div>
 
@@ -100,7 +75,32 @@
                                 <div class="mb-5">
                                     <h3 class="mb-4 d-flex align-items-center">
                                         <span class="text-dark">R$400</span>
-                                        <span class="text-body-tertiary ms-2 fs-6 fw-normal"> CASHBACK R$200</span>
+                                        <span class="text-body-tertiary ms-2 fs-6 fw-semibold"> CASHBACK R$200</span>
+                                    </h3>
+                                </div>
+
+                                <div class="mb-6">
+                                    <h3 class="h4">Pacote ouro</h3>
+                                    <p class="mb-0">Ideal for developers actively developing before going to prod.</p>
+                                </div>
+                                <div class="d-grid">
+                                    <a href="{{ route('pay.create') }}" class="btn btn-outline-primary">Comprar esse
+                                        pacote</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!--card-->
+                    </div>
+
+
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-12 mb-4">
+                        <!--card-->
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="mb-5">
+                                    <h3 class="mb-4 d-flex align-items-center">
+                                        <span class="text-dark">R$400</span>
+                                        <span class="text-body-tertiary ms-2 fs-6 fw-semibold"> CASHBACK R$200</span>
                                     </h3>
                                 </div>
 

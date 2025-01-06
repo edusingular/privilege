@@ -76,10 +76,12 @@ body {
     --bs-bg-opacity: 1;
     background-color: #E91E63 !important;
 }
+
 a {
     color: rgb(100 116 139);
     text-decoration: none;
 }
+
 main {
     padding: 55px 0 !important;
 }
@@ -179,13 +181,22 @@ main {
     font-size: 26px;
     color: #65748b;
 }
+
 .btn:hover {
     background-color: #000;
     border-color: #000;
     color: var(--bs-btn-hover-color);
 }
 
-
+.masked {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+}
+.icon {
+    cursor: pointer;
+    font-size: 24px;
+    margin-left: 10px;
+}
 @media (min-width: 992px) {
     .navbar-expand-lg .offcanvas .offcanvas-body {
         display: flex;

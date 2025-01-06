@@ -47,7 +47,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light w-100 fixed-top">
             <div class="container px-3">
-                <a class="navbar-brand" href="{{ asset('index.html') }}"><img
+                <a class="navbar-brand" href="{{ route('dashboard') }}"><img
                         src="{{ asset('assets/images/logo.svg') }}" width="110px" alt /></a>
                 <div>
                     <a class="navbar-toggler offcanvas-nav-btn " type="button">
@@ -68,7 +68,7 @@
 
                 <div class="offcanvas offcanvas-start offcanvas-nav" style="width: 20rem">
                     <div class="offcanvas-header">
-                        <a href="{{ asset('index.html') }}" class="text-inverse"><img
+                        <a href="{{ route('dashboard') }}" class="text-inverse"><img
                                 src="{{ asset('assets/images/logo.svg') }}" width="110px" alt /></a>
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
                             aria-label="Close"></button>
@@ -76,33 +76,19 @@
                     <div class="offcanvas-body pt-0 align-items-center ">
                         <ul class="navbar-nav mx-auto align-items-lg-center escondeD">
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="{{ asset('#') }}" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">Sobre</a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="{{ asset('index.html') }}">Landing Overview</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="{{ asset('landing-sass-v1.html') }}">Saas
-                                            v.1</a></li>
-                                    <li><a class="dropdown-item" href="{{ asset('landing-sass-v2.html') }}">Sass
-                                            v.2</a></li>
-                                    <li>
-                                        <a class="dropdown-item" href="{{ asset('landing-it-company.html') }}">IT
-                                            Company</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="{{ asset('landing-seo.html') }}">Seo Agency</a>
-                                    </li>
-                                    <li><a class="dropdown-item"
-                                            href="{{ asset('landing-accounting.html') }}">Accounting</a></li>
-                                    <li><a class="dropdown-item" href="{{ asset('landing-finance.html') }}">Finance</a>
-                                    </li>
-                                    <li><a class="dropdown-item"
-                                            href="{{ asset('landing-jamstack-agancy.html') }}">Jamstack Agency</a></li>
-                                    <li><a class="dropdown-item"
-                                            href="{{ asset('landing-conference.html') }}">Conference</a></li>
-                                    <li><a class="dropdown-item"
-                                            href="{{ asset('landing-personal.html') }}">Personal</a></li>
-                                </ul>
+                                <a class="nav-link " href="{{ route('ecommerce') }}" role="button">Ofertas</a>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link " href="{{ asset('#') }}" role="button">Ofertas</a>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link " href="{{ asset('#') }}" role="button">Ofertas</a>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link " href="{{ asset('#') }}" role="button">Ofertas</a>
                             </li>
 
 
@@ -257,7 +243,7 @@
                                                     data-bs-parent="#ft-links">
                                                     <ul class="list-unstyled mb-0 py-3 py-lg-0">
                                                         <li class="mb-2">
-                                                            <a href="{{ asset('index.html') }}"
+                                                            <a href="{{ route('dashboard') }}"
                                                                 class="text-decoration-none text-reset">Saas</a>
                                                         </li>
                                                         <li class="mb-2">
