@@ -34,11 +34,12 @@
             @foreach ($getAllProducts as $getAllProduct)
                 <div class="col-md-3 mb-5 col-6">
                     <a
-                        href="{{ route('product-detail', ['id' => $getAllProduct->id, 'title' => Str::slug($getAllProduct->title)]) }}">
+                        href="{{ route('ecommerce.detail', ['id' => $getAllProduct->id, 'title' => Str::slug($getAllProduct->title)]) }}">
                         <div>
 
                             <figure class="mb-3 card-lift">
-                                <img src="{{ asset('assets/clientes/' . $getAllProduct->media_products->first()->photo_video . '') }}"
+                       
+                                <img src="{{ $getAllProduct->photo ? asset('assets/clientes/'.$getAllProduct->photo.'') : asset('assets/sem-foto.gif') }}"
                                     alt="location" class="img-fluid rounded-3" />
                             </figure>
                             <div class="d-flex">

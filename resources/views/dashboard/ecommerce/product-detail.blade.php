@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-md-6 product-images-wrapper">
                 <div class="preview-image-wrapper">
-                    <img src="{{ asset('assets/clientes/' . $getSingleProduct->media_products->first()->photo_video . '') }}"
+                    <img src="{{ $getSingleProduct->photo ? asset('assets/clientes/'.$getSingleProduct->photo.'') : asset('assets/sem-foto.gif') }}"
                         class="preview-image" alt="Product Image" />
                     <div class="arrows hide-for-desktop">
                         <div class="next">
@@ -22,7 +22,7 @@
                     </div>
                     <div class="count">
                         <p>
-                            <span class="current"></span> of
+                            <span class="current"></span> de
                             <span class="total"></span>
                         </p>
                     </div>
@@ -40,7 +40,7 @@
                 </div>
             </div>
             <div class="col-md-6  product-details-wrapper">
-                <p class="product-brabd">{{ $getSingleProduct->title }}</p>
+                <p class="product-brabd">{{ $getSingleProduct->categories->title }}</p>
                 <h1 class="product-title">{{ $getSingleProduct->title }}</h1>
                 <p class="product-description">
                     {{ $getSingleProduct->description }}
@@ -64,29 +64,28 @@
                         </div>
                     @endif
 
-
-
-
                 </div>
 
-                <form action="#" class="add-to-cart-form">
+
+                <form id="add-to-cart-form" class="add-to-cart-form">
                     <div class="product-quantity">
-                        <button type="button" class="button minus">
-                            <img src="{{ asset('assets/icon-minus.svg') }}" alt="Minus Icon" />
-                        </button>
-                        <span class="product-quantity-num">0</span>
-                        <button type="button" class="button plus">
-                            <img src="{{ asset('assets/icon-plus.svg') }}" alt="Plus Icon" />
-                        </button>
+                        @csrf
+                        <input type="hidden" name="product_id" value="{{ $getSingleProduct->id }}">
+                        <div class="product-quantity productMM">
+                            <button type="button" class="buttonMM button minus">
+                                <img src="{{ asset('assets/icon-minus.svg') }}" alt="Minus Icon" />
+                            </button>
+                            <span class="product-quantity-num">1</span>
+                            <button type="button" class="buttonMM button plus">
+                                <img src="{{ asset('assets/icon-plus.svg') }}" alt="Plus Icon" />
+                            </button>
+                        </div>
+                        
+                        <button type="button" id="add-to-cart-btn" class="button add-btn">Adicionar ao Carrinho</button>
                     </div>
-
-                    <button type="submit" aria-label="Add to cart" class="button add-btn">
-                        <i class="bx bx-cart iconeCompra" style="color: #fff"></i>
-                        Adicionar no carrinho
-                    </button>
-
-                    <p class="form-alert"></p>
                 </form>
+
+                <div id="cart-message" style="display:none;"></div>
             </div>
         </div>
     </div>
@@ -110,4 +109,65 @@
         integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
+
+
+    <script>
+        $(document).ready(function() {
+            $('#add-to-cart-btn').click(function(e) {
+                e.preventDefault();
+
+                $.ajax({
+                    url: "{{ route('cart.add') }}",
+                    method: "POST",
+                    data: {
+                        _token: "{{ csrf_token() }}", // Incluindo o token CSRF diretamente
+                        product_id: $('input[name="product_id"]').val(),
+                        quantity: parseInt(document.querySelector('.product-quantity-num')
+                            .textContent)
+                    },
+                    success: function(response) {
+                        if (response.status === 'success') {
+                            // Exibe a mensagem de sucesso
+                            $('#cart-message').text(response.message).show().fadeOut(5000);
+
+                            // Atualiza a quantidade no ícone do carrinho
+                            $('#cart-quantity').text(response.cart_quantity);
+                        } else {
+                            alert(response.message);
+                        }
+                    },
+                    error: function(xhr) {
+                        alert('Ocorreu um erro. Tente novamente.');
+                    }
+                });
+            });
+        });
+    </script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Pega os elementos
+            const minusButton = document.querySelector('.button.minus');
+            const plusButton = document.querySelector('.button.plus');
+            const quantitySpan = document.querySelector('.product-quantity-num');
+
+            // Inicializa a quantidade a partir do valor do span
+            let quantity = parseInt(quantitySpan.textContent);
+
+            // Evento para diminuir a quantidade
+            minusButton.addEventListener('click', function() {
+                if (quantity > 0) {
+                    quantity--;
+                    quantitySpan.textContent = quantity; // Atualiza o valor do span com a quantidade
+                }
+            });
+
+            // Evento para aumentar a quantidade
+            plusButton.addEventListener('click', function() {
+                quantity++;
+                quantitySpan.textContent = quantity; // Atualiza o valor do span com a quantidade
+            });
+        });
+    </script>
 @endsection

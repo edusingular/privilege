@@ -30,7 +30,7 @@ class EcommerceController extends Controller
 
     public function show($id, $title)
     {
-        $getSingleProduct = Products::with('media_products')->findOrFail($id);
+        $getSingleProduct = Products::with('media_products')->with('categories')->findOrFail($id);
         return view('dashboard.ecommerce.product-detail', ['getSingleProduct'=>$getSingleProduct]);
     }
     /**

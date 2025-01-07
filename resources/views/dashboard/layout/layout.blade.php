@@ -15,7 +15,7 @@
     <link rel="mask-icon" href="{{ asset('assets/images/favicon/block-safari-pinned-tab.svg') }}" color="#8b3dff" />
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon/favicon.ico') }}" />
     <meta name="msapplication-TileColor" content="#8b3dff" />
-   
+
 
     <!-- Color modes -->
     <script src="{{ asset('assets/js/vendors/color-modes.js') }}"></script>
@@ -32,7 +32,7 @@
 
     <!-- Theme CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/theme.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css?v='.rand(0,1000).'') }}" />
 
     @yield('css')
 
@@ -55,10 +55,13 @@
 
                     </a>
 
-                    <a class="navbar-toggler offcanvas-nav-btn" href="">
+                    <a class="navbar-toggler  position-relative" href="{{ route('cart') }}">
                         <i class='bx bx-cart iconeCompra'></i>
-
+                        <span id="cart-quantity"
+                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success bgBadgeM">{{ getCart() }}</span>
                     </a>
+
+                 
                     <a class="navbar-toggler offcanvas-nav-btn" type="button">
                         <i class="bi bi-list" style="font-size:26px"></i>
                     </a>
@@ -77,20 +80,20 @@
                         <ul class="navbar-nav mx-auto align-items-lg-center escondeD">
                             <h6 class="subTitulosMenu">Principal</h6>
                             <li class="nav-item">
-                                <a class="nav-link {{ setActiveMenu('/') }}" href="{{ route('dashboard') }}">
+                                <a class="nav-link " href="{{ route('dashboard') }}">
                                     <i class="align-bottom bx bx-home"></i>
                                     <span class="ms-2 ">Home</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {{ setActiveMenu('/pay') }}" href="account-profile.html">
+                                <a class="nav-link " href="account-profile.html">
                                     <i class="align-bottom bx bx-user"></i>
                                     <span class="ms-2">Agendar Serviço</span>
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('ecommerce') }}">
+                                <a class="nav-link" href="">
                                     <i class='bx bx-cut'></i>
                                     <span class="ms-2">Serviços exclusivos</span>
                                 </a>
@@ -107,31 +110,27 @@
                             <hr>
                             <h6 class="subTitulosMenu">Financeiro</h6>
                             <li class="nav-item">
-                                <a class="nav-link {{ setActiveMenu('/pay') }}" aria-current="page"
-                                    href="{{ route('pay') }}">
+                                <a class="nav-link " aria-current="page" href="{{ route('pay') }}">
                                     <i class="bx bx-credit-card-front"></i>
                                     <span class="ms-2">Adicionar Saldo</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {{ setActiveMenu('/pay') }}" aria-current="page"
-                                    href="{{ route('pay') }}">
+                                <a class="nav-link " aria-current="page" href="#">
                                     <i class="bx bx-credit-card-front"></i>
                                     <span class="ms-2">Extrato</span>
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link {{ setActiveMenu('/pay') }}" aria-current="page"
-                                    href="{{ route('pay') }}">
+                                <a class="nav-link " aria-current="page" href="#">
                                     <i class="bi bi-piggy-bank"></i>
                                     <span class="ms-2">Economizado</span>
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link {{ setActiveMenu('/pay') }}" aria-current="page"
-                                    href="{{ route('pay') }}">
+                                <a class="nav-link " aria-current="page" href="#">
                                     <i class="bx bx-gift"></i>
                                     <span class="ms-2">Meus pontos</span>
                                 </a>
@@ -162,17 +161,14 @@
 
                                     </span>
                                 </a>
-                                <a class="offcanvas-nav-btn position-relative" href="">
+                                <a class="offcanvas-nav-btn position-relative" href="{{ route('cart') }}">
 
                                     <i class='bx bx-cart iconeCompra'></i>
-                                    <span
-                                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
-                                        3
-
-                                    </span>
+                                    <span id="cart-quantity"
+                                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">{{ getCart() }}</span>
                                 </a>
                                 <a href="{{ route('pay') }}" class="btn btn-primary "><i
-                                        class='bx bx-credit-card-front'></i> Adicionar fundos</a>
+                                        class='bx bx-credit-card-front'></i> Adicionar saldo</a>
                             </div>
                         </div>
                     </div>
@@ -223,12 +219,12 @@
                                 </li>
 
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('ecommerce') }}">
+                                    <a class="nav-link" href="#">
                                         <i class='bx bx-cut'></i>
                                         <span class="ms-2">Serviços exclusivos</span>
                                     </a>
                                 </li>
-    
+
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('ecommerce') }}">
                                         <i class='bx bx-purchase-tag-alt'></i>
@@ -240,31 +236,28 @@
                                 <hr>
                                 <h6 class="subTitulosMenu">Financeiro</h6>
                                 <li class="nav-item">
-                                    <a class="nav-link {{ setActiveMenu('/pay') }}" aria-current="page"
-                                        href="{{ route('pay') }}">
+                                    <a class="nav-link " aria-current="page" href="{{ route('pay') }}">
                                         <i class="bx bx-credit-card-front"></i>
                                         <span class="ms-2">Adicionar Saldo</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link {{ setActiveMenu('/pay') }}" aria-current="page"
-                                        href="{{ route('pay') }}">
+                                        href="#">
                                         <i class="bx bx-credit-card-front"></i>
                                         <span class="ms-2">Extrato</span>
                                     </a>
                                 </li>
 
                                 <li class="nav-item">
-                                    <a class="nav-link {{ setActiveMenu('/pay') }}" aria-current="page"
-                                        href="{{ route('pay') }}">
+                                    <a class="nav-link " aria-current="page" href="#">
                                         <i class="bi bi-piggy-bank"></i>
                                         <span class="ms-2">Economizado</span>
                                     </a>
                                 </li>
 
                                 <li class="nav-item">
-                                    <a class="nav-link {{ setActiveMenu('/pay') }}" aria-current="page"
-                                        href="{{ route('pay') }}">
+                                    <a class="nav-link " aria-current="page" href="#">
                                         <i class="bx bx-gift"></i>
                                         <span class="ms-2">Meus pontos</span>
                                     </a>

@@ -8,7 +8,7 @@
     <div class="col-lg-10 col-md-10">
 
         <div class="mb-4">
-            <h1 class="mb-0 h3">Adicionar fundos</h1>
+            <h1 class="mb-0 h3">Adicionar saldo</h1>
         </div>
 
         <div class="card border-0 mb-4 shadow-sm">

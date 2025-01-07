@@ -410,7 +410,7 @@ button:hover,
 
 @media (min-width: 40em) {
     .product-images-wrapper {
-        max-width: 440px;
+
         margin: auto;
     }
 }
@@ -499,7 +499,7 @@ button:hover,
     cursor: pointer;
     overflow: hidden;
     user-select: none;
-    border-radius: 10px;
+    border-radius: 20px;
     border: 2px solid transparent;
     transition: 0.2s linear;
 }
@@ -619,7 +619,7 @@ button:hover,
 }
 
 .product-details-wrapper .add-to-cart-form .product-quantity {
-    flex-basis: 155px;
+    flex-basis: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -648,7 +648,7 @@ button:hover,
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-basis: 270px;
+    flex-basis: 100%;
     gap: 15px;
     width: 100%;
     color: white;
@@ -696,6 +696,7 @@ button:hover,
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.2s linear, visibility 0.3s linear;
+    z-index: 380000;
 }
 
 .lightbox-wrapper.open {
@@ -709,7 +710,7 @@ button:hover,
 }
 
 .lightbox-wrapper .lightbox-content .product-images-wrapper {
-    max-width: 500px;
+
     gap: 35px;
 }
 
@@ -763,4 +764,28 @@ button:hover,
 .lightbox-wrapper .thumbs-wrapper>div {
     width: 95px;
     height: 95px;
+}
+
+#cart-message {
+    background-color: #4cae4f;
+    padding: 20px;
+    border-radius: 15px;
+    position: absolute;
+    display: flex;
+    margin-top: -200px;
+    color: #fff;
+    font-size: 12px;
+}
+
+.buttonMM {
+    width: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.productMM {
+    background-color: #ffffff !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

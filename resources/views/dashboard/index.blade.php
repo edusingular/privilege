@@ -127,10 +127,15 @@
             <div id="pacotes" class="owl-carousel owl-theme">
                 {{-- //@dd($getAllProductsWorks) --}}
                 @foreach ($getAllProductsWorks as $getAllProductsWork)
+                <a  href="{{ route('ecommerce.detail', ['id' => $getAllProductsWork->id, 'title' => Str::slug($getAllProductsWork->title)]) }}">
                     <div class="box">
                         <figure class="mb-3 card-lift">
-                            <img src="{{ asset('assets/clientes/'.$getAllProductsWork->media_products->first()->photo_video.'') }}" alt="location"
+                            <img src="{{ $getAllProductsWork->photo ? asset('assets/clientes/'.$getAllProductsWork->photo.'') : asset('assets/sem-foto.gif') }}" alt="location"
                                 class="img-fluid rounded-3" />
+
+                                
+                            {{-- <img src="{{ asset('assets/clientes/'.$getAllProductsWork->media_products->first()->photo_video.'') }}" alt="location"
+                                class="img-fluid rounded-3" /> --}}
                         </figure>
                         <div class="d-flex">
                             <div class="ms-2">
@@ -152,6 +157,7 @@
                             </div>
                         </div>
                     </div>
+                </a>
                 @endforeach
 
 
@@ -167,9 +173,10 @@
 
             <div id="produtos" class="owl-carousel owl-theme">
                 @foreach ($getAllProducts as $getAllProduct)
+                <a href="{{ route('ecommerce.detail', ['id' => $getAllProduct->id, 'title' => Str::slug($getAllProduct->title)]) }}">
                     <div class="box">
                         <figure class="mb-3 card-lift">
-                            <img src="{{ asset('assets/clientes/'.$getAllProduct->media_products->first()->photo_video.'') }}" alt="location"
+                            <img src="{{ $getAllProduct->photo ? asset('assets/clientes/'.$getAllProduct->photo.'') : asset('assets/sem-foto.gif') }}" alt="location"
                                 class="img-fluid rounded-3" />
                         </figure>
                         <div class="d-flex">
@@ -193,6 +200,7 @@
                             </div>
                         </div>
                     </div>
+                </a>
                 @endforeach
 
 

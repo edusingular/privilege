@@ -11,7 +11,7 @@ class ProductsController extends Controller
     public function getAllProducts()
     {
         $products = Products::where('company_id', 1)
-        ->select('id', 'title', 'amount', 'amount_promotion')
+        ->select('id', 'title', 'amount', 'amount_promotion', 'photo')
         ->orderBy('id', 'desc')
         ->with('media_products')
         ->limit(10)
@@ -24,7 +24,7 @@ class ProductsController extends Controller
     {
         $products = Products::where('company_id', 1)
         ->where('tipo', $tipo)
-        ->select('id', 'title', 'amount', 'amount_promotion')
+        ->select('id', 'title', 'amount', 'amount_promotion', 'photo')
         ->orderBy('id', 'desc')
         ->with('media_products')
         ->limit(10)

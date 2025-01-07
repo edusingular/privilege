@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EcommerceController;
 use App\Http\Controllers\PayController;
@@ -14,4 +15,10 @@ Route::get('/pay/create', [PayController::class, 'create'])->name('pay.create');
 
 
 Route::get('/ecommerce', [EcommerceController::class, 'index'])->name('ecommerce');
-Route::get('product-detail/{id}/{title}', [EcommerceController::class, 'show'])->name('product-detail');
+Route::get('ecommerce/{id}/{title}', [EcommerceController::class, 'show'])->name('ecommerce.detail');
+
+
+Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');
+Route::get('/cart', [CartController::class, 'index'])->name('cart');
+
+Route::get('/cart/delete/{id}', [CartController::class, 'delete'])->name('cart.delete');
