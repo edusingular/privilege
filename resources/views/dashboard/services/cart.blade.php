@@ -50,7 +50,7 @@
                                 @php
                                     $total = 0; // Inicialize a variável total com 0
                                 @endphp
-                                @foreach ($getCarts as $getCart)
+                                @forelse ($getCarts as $getCart)
                                     {{-- @dd($getCart->product) --}}
                                     <tr>
                                         <td>
@@ -72,8 +72,14 @@
                                     @php
                                         $total += $getCart->total;
                                     @endphp
-                                @endforeach
+                                @empty
+                                <div class="mb-5 text-center">
+                                    <h4 class="mb-1">Nenhum item no carrinho</h4>
+                                    <a href="{{ route('ecommerce') }}" class="btn btn-primary">Veja nossos produtos</a>
+                                </div>
+                                @endforelse
 
+                        
                             </tbody>
 
                         </table>

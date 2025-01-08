@@ -7,7 +7,7 @@
 @section('content')
     <div class="col-lg-10 col-md-10">
         <div class="mb-4">
-            <h3 class="mb-0 h3">Olá Eduardo Dutra! Bem vindo de volta.</h3>
+            <h3 class="mb-0 h3">Olá {{ Auth::user()->name }}! Bem vindo de volta.</h3>
         </div>
 
         <div class="row mb-5 g-4">
@@ -122,7 +122,7 @@
 
         <div class="row g-4">
             <div class="col-lg-12 col-md-12 col-12">
-                <h6 class="mb-lg-4">Pacotes exclusivos</h6>
+                <h6 class="mb-lg-4">Pacotes de serviços exclusivos</h6>
             </div>
             <div id="pacotes" class="owl-carousel owl-theme">
                 {{-- //@dd($getAllProductsWorks) --}}

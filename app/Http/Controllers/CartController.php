@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Cart;
 use App\Models\Products;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
@@ -27,7 +28,7 @@ class CartController extends Controller
         }
 
         // Verificar se o produto já está no carrinho
-        $cartItem = Cart::where('user_id', 1)->where('product_id', $productId)->first();
+        $cartItem = Cart::where('user_id', Auth::user()->id)->where('product_id', $productId)->first();
 
         $total = $price * $quantity;
 
@@ -37,7 +38,7 @@ class CartController extends Controller
             $cartItem->save();
         } else {
             Cart::create([
-                'user_id' => 1,
+                'user_id' => Auth::user()->id,
                 'product_id' => $productId,
                 'company_id' => 1,
                 'quantity' => $quantity,
@@ -46,7 +47,7 @@ class CartController extends Controller
             ]);
         }
 
-        $cartQuantity = Cart::where('user_id', 1)->sum('quantity');
+        $cartQuantity = Cart::where('user_id', Auth::user()->id)->sum('quantity');
 
         return response()->json([
             'status' => 'success',
@@ -57,14 +58,14 @@ class CartController extends Controller
 
     public function index()
     {
-        $getCarts = Cart::where('user_id', 1)->get();
+        $getCarts = Cart::where('user_id', Auth::user()->id)->get();
         return view('dashboard.ecommerce.cart', ['getCarts'=>$getCarts]);
     }
 
     public function delete($id)
     {
         // Encontrar o item do carrinho com o ID fornecido e que pertence ao usuário logado
-        $cartItem = Cart::where('id', $id)->where('user_id', 1)->first();
+        $cartItem = Cart::where('id', $id)->where('user_id', Auth::user()->id)->first();
         
         // Verificar se o item foi encontrado
         if ($cartItem) {

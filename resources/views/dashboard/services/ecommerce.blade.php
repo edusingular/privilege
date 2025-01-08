@@ -21,9 +21,7 @@
             </div>
         </div>
 
-        @include('dashboard.ecommerce.categorias')
-
-
+       
         <div class="row g-4 mb-4">
             <div class="col-lg-12 col-md-12 col-12">
                 <h6 class="mt-4">{{ isset($showCategorie)  ? $showCategorie->title : 'Nossos produtos '}}</h6>

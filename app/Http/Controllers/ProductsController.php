@@ -14,6 +14,7 @@ class ProductsController extends Controller
         ->select('id', 'title', 'amount', 'amount_promotion', 'photo')
         ->orderBy('id', 'desc')
         ->with('media_products')
+        ->where('tipo', 0)
         ->limit(10)
         ->get();
         //dd($products);

@@ -6,7 +6,7 @@ use App\Models\Categories;
 use App\Models\Products;
 use Illuminate\Http\Request;
 
-class EcommerceController extends Controller
+class ServicesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,16 +21,18 @@ class EcommerceController extends Controller
     public function index()
     {
         //
-        $getAllCategories = Categories::where('company_id', 1)->get();
-        $getAllProducts = $this->product->getAllProducts();
-        return view('dashboard.ecommerce.ecommerce', ['getAllProducts' => $getAllProducts, 'getAllCategories' => $getAllCategories]);
+        $getAllProducts = Products::with('media_products')
+        ->where('tipo', 1)
+        ->paginate(20);
+
+        return view('dashboard.services.ecommerce', ['getAllProducts' => $getAllProducts]);
     }
 
 
     public function show($id, $title)
     {
         $getSingleProduct = Products::with('media_products')->with('categories')->findOrFail($id);
-        return view('dashboard.ecommerce.product-detail', ['getSingleProduct' => $getSingleProduct]);
+        return view('dashboard.services.product-detail', ['getSingleProduct' => $getSingleProduct]);
     }
 
     public function showCategory($id)
@@ -43,7 +45,7 @@ class EcommerceController extends Controller
         ->where('category_id', $id)
         ->paginate(20);
 
-        return view('dashboard.ecommerce.ecommerce', ['getAllProducts' => $getAllProducts, 'getAllCategories' => $getAllCategories, 'showCategorie'=>$showCategorie]);
+        return view('dashboard.services.ecommerce', ['getAllProducts' => $getAllProducts, 'getAllCategories' => $getAllCategories, 'showCategorie'=>$showCategorie]);
     }
 
 

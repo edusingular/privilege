@@ -86,9 +86,13 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link " href="account-profile.html">
-                                    <i class="align-bottom bx bx-user"></i>
-                                    <span class="ms-2">Agendar Serviço</span>
+                                <a class="nav-link position-relative" href="account-profile.html">
+                                    <i class="align-bottom bx bx-user "></i>
+                                    <span class="ms-2 ">Agendar Serviço</span>
+                                    <span class="position-absolute  translate-middle badge rounded-pill bg-danger" style="margin-left:20px; background-color:#000000 !important">
+                                        Breve
+                                        <span class="visually-hidden">unread messages</span>
+                                      </span>
                                 </a>
                             </li>
 
@@ -188,8 +192,8 @@
                             <img src="{{ asset('assets/images/avatar/avatar-1.jpg') }}" alt="avatar"
                                 class="avatar avatar-lg rounded-circle" />
                             <div class="ms-3">
-                                <h5 class="mb-0">Jitu Chauhan</h5>
-                                <small>Personal account</small>
+                                <h5 class="mb-0">{{ Auth::user()->name }}</h5>
+                               
                             </div>
                         </div>
                         <!-- Navbar -->
@@ -215,11 +219,15 @@
                                     <a class="nav-link {{ setActiveMenu('/pay') }}" href="account-profile.html">
                                         <i class="align-bottom bx bx-user"></i>
                                         <span class="ms-2">Agendar Serviço</span>
+                                        <span class="position-absolute   translate-middle badge rounded-pill bg-danger" style="margin-left:20px; background-color:#000000 !important">
+                                            Breve
+                                            <span class="visually-hidden">unread messages</span>
+                                          </span>
                                     </a>
                                 </li>
 
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">
+                                    <a class="nav-link" href="{{ route('services') }}">
                                         <i class='bx bx-cut'></i>
                                         <span class="ms-2">Serviços exclusivos</span>
                                     </a>
@@ -264,7 +272,10 @@
                                 </li>
                                 <hr>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="index.html">
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                    <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         <i class="align-bottom bx bx-log-out"></i>
                                         <span class="ms-2">Sair</span>
                                     </a>
