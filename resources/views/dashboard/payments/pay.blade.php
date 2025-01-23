@@ -155,64 +155,7 @@
 
             </div>
         </div>
-        <div class="card border-0 mb-4 shadow-sm">
-            <div class="card-body p-lg-5">
-                <div class="mb-5">
-                    <h4 class="mb-1">Histórico de depositos</h4>
-
-                </div>
-
-                <ul class="list-group list-group-flush mb-0">
-                    <li class="list-group-item px-0 py-3 border-top">
-                        <div class="d-flex justify-content-between text-dark fw-semibold fs-6">
-                            <span>01 Feb 2023</span>
-                            <span>$26.96</span>
-                            <a href="#">PDF</a>
-                        </div>
-                    </li>
-                    <li class="list-group-item px-0 py-3">
-                        <div class="d-flex justify-content-between text-dark fw-semibold fs-6">
-                            <span>31 Jan 2023</span>
-                            <span>$34.30</span>
-                            <a href="#">PDF</a>
-                        </div>
-                    </li>
-                    <li class="list-group-item px-0 py-3">
-                        <div class="d-flex justify-content-between text-dark fw-semibold fs-6">
-                            <span>30 Jan 2023</span>
-                            <span>$93.10</span>
-                            <a href="#">PDF</a>
-                        </div>
-                    </li>
-                    <li class="list-group-item px-0 py-3">
-                        <div class="d-flex justify-content-between text-dark fw-semibold fs-6">
-                            <span>29 Jan 2023</span>
-                            <span>$44.39</span>
-                            <a href="#">PDF</a>
-                        </div>
-                    </li>
-                    <li class="list-group-item px-0 py-3 border-bottom">
-                        <div class="d-flex justify-content-between text-dark fw-semibold fs-6">
-                            <span>23 Jan 2023</span>
-                            <span>$26.96</span>
-                            <a href="#">PDF</a>
-                        </div>
-                    </li>
-                </ul>
-
-                <div class="mt-4">
-                    <a href="#" class="icon-link icon-link-hover">
-                        View All Invoices
-                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor"
-                            class="bi bi-arrow-right" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z">
-                            </path>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </div>
+        @include('dashboard.Extrato.partiais.extratoPartiais')
 
     </div>
 

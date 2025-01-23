@@ -3,6 +3,7 @@
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EcommerceController;
+use App\Http\Controllers\ExtratoController;
 use App\Http\Controllers\PayController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServicesController;
@@ -16,9 +17,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    
+
     Route::get('/pay', [PayController::class, 'index'])->name('pay');
     Route::get('/pay/create', [PayController::class, 'create'])->name('pay.create');
+
+
+    Route::get('/extract', [ExtratoController::class, 'index'])->name('extrato');
 
 
 
@@ -30,8 +34,8 @@ Route::middleware('auth')->group(function () {
 
 
     Route::get('/services', [ServicesController::class, 'index'])->name('services');
-    
-    
+
+
     Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');
     Route::get('/cart', [CartController::class, 'index'])->name('cart');
     Route::get('/cart/delete/{id}', [CartController::class, 'delete'])->name('cart.delete');

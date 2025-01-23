@@ -17,7 +17,7 @@
                         <div>
                             <span class="saldom"><i class="bi bi-wallet2"></i>
                                 Saldo</span>
-                            <h3 class="mb-0 mt-2 font16m" id="textContent" data-original="R$1350.00">R$1350.00</h3>
+                            <h3 class="mb-0 mt-2 font16m" id="textContent" data-original="R${{ getBalance() }}">R${{ getBalance() }}</h3>
                         </div>
 
                         <i id="toggleIcon" class="bi bi-eye icon" style="font-size: 20px;"></i>
@@ -29,7 +29,7 @@
                 <div class="card border-0 shadow-sm">
                     <div class="card-body">
                         <span class="saldo"><i class="bi bi-piggy-bank"></i> Economizado</span>
-                        <h3 class="mb-0 mt-2 font16">R$40.61</h3>
+                        <h3 class="mb-0 mt-2 font16">R${{ getBalanceCashBackAndPoints('Cashback') }}</h3>
                     </div>
                 </div>
             </div>
@@ -39,7 +39,7 @@
                 <div class="card border-0 shadow-sm">
                     <div class="card-body">
                         <span class="saldo"><i class='bx bx-gift'></i> Meus pontos</span>
-                        <h3 class="mb-0 mt-2 font16">700</h3>
+                        <h3 class="mb-0 mt-2 font16">{{ getBalanceCashBackAndPoints('Points') }}</h3>
                     </div>
                 </div>
             </div>

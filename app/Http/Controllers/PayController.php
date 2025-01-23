@@ -4,19 +4,25 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\QrCodeController;
-
-
+use App\Services\ExtratoService;
 
 class PayController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    
+    protected $extratoService;
+
+    public function __construct(ExtratoService $extratoService)
+    {
+        $this->extratoService = $extratoService;
+    }
 
     public function index()
     {
-        return view('dashboard.payments.pay');
+        $extratos = $this->extratoService->getExtratos();
+        
+        return view('dashboard.payments.pay', ['extratos'=>$extratos]);
     }
 
     /**

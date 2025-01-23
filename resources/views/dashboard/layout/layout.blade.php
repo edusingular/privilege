@@ -120,7 +120,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link " aria-current="page" href="#">
+                                <a class="nav-link " aria-current="page" href="{{ route('extrato') }}">
                                     <i class="bx bx-credit-card-front"></i>
                                     <span class="ms-2">Extrato</span>
                                 </a>
@@ -250,8 +250,8 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link {{ setActiveMenu('/pay') }}" aria-current="page"
-                                        href="#">
+                                    <a class="nav-link {{ setActiveMenu('/extrato') }}" aria-current="page"
+                                        href="{{ route('extrato') }}">
                                         <i class="bx bx-credit-card-front"></i>
                                         <span class="ms-2">Extrato</span>
                                     </a>
