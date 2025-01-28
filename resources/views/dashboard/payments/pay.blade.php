@@ -14,25 +14,31 @@
         <div class="card border-0 mb-4 shadow-sm">
             <div class="card-body p-lg-5">
                 <div class="mb-6">
-                    <h4 class="mb-0">Selecione o valor</h4>
+                    <h4 class="mb-0">Escolha o melhor pacote</h4>
 
                     <p class="fs-6 mb-0">Selecione o valor da recarga e receba na hora o cashback</p>
                 </div>
                 <div class="row gx-4">
+
+                    @forelse ($packages as $package)
                     <div class="col-xl-4 col-lg-4 col-md-6 col-12 mb-4">
                         <!--card-->
-                        <div class="card">
-                            <div class="card-body">
+                        <div class="card" style="height: 350px">
+                            <div class="card-body" style="display: flex;flex-direction: column;align-content: flex-start;justify-content: space-between;">
                                 <div class="mb-5">
-                                    <h3 class="mb-4 d-flex align-items-center">
-                                        <span class="text-dark">R$400</span>
-                                        <span class="text-body-tertiary ms-2 fs-6 fw-semibold"> CASHBACK R$200</span>
+                                    <h3 class="mb-4 d-flex align-items-center justify-content-between">
+                                        <span class="text-dark">R${{ number_format($package->amount, 2,',','.') }}</span>
+                                        <div class="d-flex flex-column align-items-end">
+                                            <span class="text-body-tertiary ms-2 fs-6 fw-semibold"> CASHBACK <strong>R${{ number_format($package->cashback, 2,',','.') }}</strong></span>
+                                            <span class="text-body-tertiary ms-2 fs-6 fw-semibold"> PONTOS <strong>{{ $package->points }}</strong></span>
+                                        </div>
                                     </h3>
+                                    <h5 class="pacotesSaldo"></h5>
                                 </div>
 
                                 <div class="mb-6">
-                                    <h3 class="h4">Pacote ouro</h3>
-                                    <p class="mb-0">Ideal for developers actively developing before going to prod.</p>
+                                    <h3 class="h4">{{ $package->title }}</h3>
+                                    <p class="mb-0">Comprando o <strong>{{ $package->title }}</strong> você terá um saldo de <strong>R${{ number_format($package->cashback + $package->amount), 2,',','.' }}</strong> + {{ $package->points }} pontos, para poder usar em nosso estabelecimento ou em nossa  <strong><a href="{{ route('ecommerce') }}">loja virtual</a></strong>.</p>
                                 </div>
                                 <div class="d-grid">
                                     <a href="{{ route('pay.create') }}" class="btn btn-outline-primary">Comprar esse
@@ -42,80 +48,12 @@
                         </div>
                         <!--card-->
                     </div>
-
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-12 mb-4">
-                        <!--card-->
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="mb-5">
-                                    <h3 class="mb-4 d-flex align-items-center">
-                                        <span class="text-dark">R$400</span>
-                                        <span class="text-body-tertiary ms-2 fs-6 fw-semibold"> CASHBACK R$200</span>
-                                    </h3>
-                                </div>
-
-                                <div class="mb-6">
-                                    <h3 class="h4">Pacote ouro</h3>
-                                    <p class="mb-0">Ideal for developers actively developing before going to prod.</p>
-                                </div>
-                                <div class="d-grid">
-                                    <a href="{{ route('pay.create') }}" class="btn btn-outline-primary">Comprar esse
-                                        pacote</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!--card-->
-                    </div>
+                    @empty
+                        <h5>Nenhum pacote encontrado</h5>
+                    @endforelse
 
 
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-12 mb-4">
-                        <!--card-->
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="mb-5">
-                                    <h3 class="mb-4 d-flex align-items-center">
-                                        <span class="text-dark">R$400</span>
-                                        <span class="text-body-tertiary ms-2 fs-6 fw-semibold"> CASHBACK R$200</span>
-                                    </h3>
-                                </div>
 
-                                <div class="mb-6">
-                                    <h3 class="h4">Pacote ouro</h3>
-                                    <p class="mb-0">Ideal for developers actively developing before going to prod.</p>
-                                </div>
-                                <div class="d-grid">
-                                    <a href="{{ route('pay.create') }}" class="btn btn-outline-primary">Comprar esse
-                                        pacote</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!--card-->
-                    </div>
-
-
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-12 mb-4">
-                        <!--card-->
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="mb-5">
-                                    <h3 class="mb-4 d-flex align-items-center">
-                                        <span class="text-dark">R$400</span>
-                                        <span class="text-body-tertiary ms-2 fs-6 fw-semibold"> CASHBACK R$200</span>
-                                    </h3>
-                                </div>
-
-                                <div class="mb-6">
-                                    <h3 class="h4">Pacote ouro</h3>
-                                    <p class="mb-0">Ideal for developers actively developing before going to prod.</p>
-                                </div>
-                                <div class="d-grid">
-                                    <a href="{{ route('pay.create') }}" class="btn btn-outline-primary">Comprar esse
-                                        pacote</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!--card-->
-                    </div>
                 </div>
             </div>
         </div>

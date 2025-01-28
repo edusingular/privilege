@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\QrCodeController;
+use App\Models\Package;
 use App\Services\ExtratoService;
 
 class PayController extends Controller
@@ -21,8 +22,9 @@ class PayController extends Controller
     public function index()
     {
         $extratos = $this->extratoService->getExtratos();
-        
-        return view('dashboard.payments.pay', ['extratos'=>$extratos]);
+        $packages = Package::where('company_id', 1)
+                    ->get();
+        return view('dashboard.payments.pay', ['extratos'=>$extratos, 'packages'=>$packages]);
     }
 
     /**

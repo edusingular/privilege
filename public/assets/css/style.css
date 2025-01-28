@@ -269,7 +269,18 @@ main {
 }
 
 
+.iconesBoxes{
+    font-size: 32px;
+}
 
+.coneEditar{
+    padding: 5px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    position: absolute;
+    margin-left: -15px;
+    top: 40px;
+}
 @media (min-width: 992px) {
     .navbar-expand-lg .offcanvas .offcanvas-body {
         display: flex;
@@ -404,3 +415,4 @@ main {
         font-weight: 800;
     }
 }
+

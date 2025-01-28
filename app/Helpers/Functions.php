@@ -2,6 +2,7 @@
 
 use App\Models\Balance;
 use App\Models\Cart;
+use App\Services\CompanieService;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 
@@ -12,30 +13,34 @@ function setActiveMenu($route)
 }
 
 
-function getCart(){
+function getCart()
+{
     return $cartQuantity = Cart::where('user_id', Auth::user()->id)->sum('quantity');
 }
 
-function getBalance(){
+function getBalance()
+{
     $amount = $getBalance = Balance::where('user_id', Auth::user()->id)
-                            ->where('status','paid')                        
-                            ->sum('amount');
-    return number_format($amount, 2, ',','.');
+        ->where('status', 'paid')
+        ->sum('amount');
+    return number_format($amount, 2, ',', '.');
 }
 
-function getBalanceCashBackAndPoints($tipo){
+function getBalanceCashBackAndPoints($tipo)
+{
     $amount = $getBalance = Balance::where('user_id', Auth::user()->id)
-                            ->where('status','paid')
-                            ->where('tipo', $tipo)                        
-                            ->sum('amount');
-                ($tipo != 'Points') ? 
-                    $amount = number_format($amount, 2, ',','.') :
-                    $amount = $amount;
-                return $amount;
+        ->where('status', 'paid')
+        ->where('tipo', $tipo)
+        ->sum('amount');
+    ($tipo != 'Points') ?
+        $amount = number_format($amount, 2, ',', '.') :
+        $amount = $amount;
+    return $amount;
 }
 
 
-function getStatusBadge($status) {
+function getStatusBadge($status)
+{
     switch ($status) {
         case 'paid':
             $texto = 'Pago';
@@ -56,4 +61,9 @@ function getStatusBadge($status) {
     }
 
     return [$texto, $statusClass];
+}
+function getCompanie()
+{
+    $companie = new CompanieService;
+    return $companie->getCompany();
 }

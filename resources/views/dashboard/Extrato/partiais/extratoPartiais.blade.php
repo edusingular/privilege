@@ -7,9 +7,24 @@
 
         <ul class="list-group list-group-flush mb-0">
             @forelse ($extratos as $extrato)
+            @php
+                if ($extrato->tipo == 'Cashback') {
+                    $icone = 'bi-piggy-bank';
+                    $color = '#e1972f';
+                }elseif ($extrato->tipo == 'Points') {
+                    $icone = 'bx-gift';
+                    $color = '#ffcc00';
+                }elseif ($extrato->tipo == 'Compra') {
+                    $icone = 'bx-credit-card-front';
+                    $color = '#72C953';
+                }else{
+                    $icone = 'bx-credit-card-front';
+                    $color = '#e1972f';
+                }
+            @endphp
                 <li class="list-group-item px-0 py-3 border-top">
                     <div class="d-flex justify-content-between text-dark fw-semibold fs-6">
-                        <div style="width: 100px">{{ $extrato->tipo }}</div>
+                        <div style="width: 100px"><i class="bx {{ $icone }}" style="color:{{ $color }}; margin-right:5px"></i>  {{ $extrato->tipo }}</div>
                         <div style="width: 300px">{{ $extrato->description }}</div>
                         <div style="width: 100px">{{ ($extrato->tipo == 'Points') ? $extrato->amount.' Pontos' : 'R$'.number_format($extrato->amount, 2,',','.') }}</div>
                         <div style="width: 80px"><span class="badge {{ getStatusBadge($extrato->status)[1] }}">{{ getStatusBadge($extrato->status)[0]}}</span></div>
