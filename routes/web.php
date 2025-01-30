@@ -47,7 +47,8 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/upload-photo', [UserController::class, 'uploadPhoto'])->name('user.uploadPhoto');
 
-
+    Route::get('/user/edit', [UserController::class, 'edit'])->name('user.edit');
+    Route::put('/user/update', [UserController::class, 'update'])->name('user.update');
 });
 
 

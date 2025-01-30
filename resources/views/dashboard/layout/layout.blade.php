@@ -142,19 +142,13 @@
                                     <span class="ms-2">Meus pontos</span>
                                 </a>
                             </li>
-                            <hr>
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.html">
-                                    <i class="align-bottom bx bx-log-out"></i>
-                                    <span class="ms-2">Sair</span>
-                                </a>
-                            </li>
+
 
 
                             <hr>
                             <h6 class="subTitulosMenu">Minha conta</h6>
                             <li class="nav-item">
-                                <a class="nav-link " aria-current="page" href="{{ route('pay') }}">
+                                <a class="nav-link " aria-current="page" href="{{ route('user.edit') }}">
                                     <i class="bx bx-credit-card-front"></i>
                                     <span class="ms-2">Meus dados</span>
                                 </a>
@@ -166,7 +160,13 @@
                                     <span class="ms-2">Minha foto</span>
                                 </a>
                             </li>
-
+                            <hr>
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">
+                                    <i class="align-bottom bx bx-log-out"></i>
+                                    <span class="ms-2">Sair</span>
+                                </a>
+                            </li>
 
                         </ul>
 
@@ -302,7 +302,7 @@
                                 <hr>
                                 <h6 class="subTitulosMenu">Minha conta</h6>
                                 <li class="nav-item">
-                                    <a class="nav-link " aria-current="page" href="{{ route('dashboard') }}">
+                                    <a class="nav-link {{ setActiveMenu('/user/edit') }}" aria-current="page" href="{{ route('user.edit') }}">
                                         <i class='bx bx-user-circle'></i>
                                         <span class="ms-2">Meus dados</span>
                                     </a>

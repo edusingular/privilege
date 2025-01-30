@@ -13,13 +13,13 @@
 
 
         <div class="card border-0 mb-4 shadow-sm">
-            <div class="card-body p-lg-5">
+            <div class="card-body p-lg-5 scrollCard">
                 <div class="mb-5">
                     <h4 class="mb-1">Últimas movimentações</h4>
 
                 </div>
 
-                <ul class="list-group list-group-flush mb-0">
+                <ul class="list-group list-group-flush mb-0 wfit-content">
                     @forelse ($cashbacks as $cashback)
                     @php
                         if ($cashback->tipo == 'Cashback') {

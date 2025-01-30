@@ -45,7 +45,7 @@
     color: #17c653;
 }
 
-.badge-light-dark{
+.badge-light-dark {
 
     background-color: #c0c0c0;
     color: #161616;
@@ -66,6 +66,7 @@
     color: #000000;
     z-index: 2;
 }
+
 body {
     font-family: "Inter", serif !important;
 }
@@ -269,11 +270,11 @@ main {
 }
 
 
-.iconesBoxes{
+.iconesBoxes {
     font-size: 32px;
 }
 
-.coneEditar{
+.coneEditar {
     padding: 5px;
     background-color: #ffffff;
     border-radius: 20px;
@@ -281,6 +282,17 @@ main {
     margin-left: -15px;
     top: 40px;
 }
+
+.scrollCard {
+    scroll-behavior: auto;
+    width: 100%;
+    overflow: auto;
+}
+
+.wfit-content {
+    width: 100%;
+}
+
 @media (min-width: 992px) {
     .navbar-expand-lg .offcanvas .offcanvas-body {
         display: flex;
@@ -312,6 +324,10 @@ main {
 }
 
 @media (max-width: 768px) {
+    .wfit-content {
+        width: fit-content;
+    }
+
     .bgBadgeM {
         width: 20px;
         height: 20px;
@@ -415,4 +431,3 @@ main {
         font-weight: 800;
     }
 }
-
